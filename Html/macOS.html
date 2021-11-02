@@ -75,11 +75,31 @@
         position: relative;
         bottom: 15px;
     }
-    .presentation-image{
-        background-image: url(../img/Background/os-preview.png);
-        background-size: 100%;
-    }  
-   
+    .margin{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .titolo{
+        font-family: 'Ubuntu' , sans-serif;
+        color: whitesmoke;
+        font-size: 60px;
+        margin-top: 7%;
+        font-weight: 600;
+    }
+    .titolo-paragrafo{
+        font-family: 'Ubuntu' , sans-serif;
+        color: whitesmoke;
+        font-size: 50px;
+        margin-top: 4%;
+        font-weight: 500;
+    }
+    .testo{
+        font-family: 'Ubuntu' , sans-serif;
+        color: whitesmoke;
+        font-size: 24px;
+        margin-top: 1%;
+        font-weight: 300;
+    }
 </style>
 <body style="background-image: url(../img/Background/background.svg); background-size: 100% ; background-attachment: fixed; ">    
     <header>
@@ -93,8 +113,29 @@
         </nav>
         <a href="OS-comparison.html" class="sistemi-operativi"><button class="nav-button">OS Comparison</button></a>
     </header>
-    <img src="../img/Logo/apple-logo.png" alt="">
-  
- 
+    <div class="margin">
+        <div class="titolo">
+            Mac OS X
+        </div>
+        <div class="testo" style="width: 40%; display: inline-block;">
+            macOS (formerly "Mac OS X" and later "OS X") is a line of open core graphical operating systems developed, 
+            marketed, and sold by Apple Inc., the latest of which is pre-loaded on all currently shipping Macintosh computers. 
+            macOS is the successor to the original classic Mac OS, which had been Apple's primary operating system since 1984. 
+            Unlike its predecessor, macOS is a UNIX operating system built on technology that had been developed at NeXT through 
+            the second half of the 1980s and up until Apple purchased the company in early 1997. The operating system was 
+            first released in 1999 as Mac OS X Server 1.0, followed in March 2001 by a client version (Mac OS X v10.0 "Cheetah"). 
+            Since then, six more distinct "client" and "server" editions of macOS have been released, until the two were merged in OS X 10.7 "Lion".
+        </div>
+        <div style="width: 40%; display: inline-block;">
+            <img src="../img/Images/MacOS.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 5%; margin-left: 10%;">
+        </div>
+        <div class="testo">
+            Prior to its merging with macOS, the server edition – macOS Server – was architecturally identical to its desktop counterpart and usually 
+            ran on Apple's line of Macintosh server hardware. macOS Server included work group management and administration software tools that 
+            provide simplified access to key network services, including a mail transfer agent, a Samba server, an LDAP server, a domain name server, 
+            and others. With Mac OS X v10.7 Lion, all server aspects of Mac OS X Server have been integrated into the client version and the product 
+            re-branded as "OS X" (dropping "Mac" from the name). The server tools are now offered as an application.
+        </div>
+    </div>
 </body>
 </html>
