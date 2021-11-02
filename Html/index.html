@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tag necessari -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Titolo della scheda -->
+    <title>OS</title>
+</head>
+<!-- Non sapprei se questo è considerato css interno  -->
+<style>
+    /* Importo i font dal sito fonts google */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Ubuntu:wght@400;500&display=swap');
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+
+    }
+    /* Faccio un resize per il logo */
+    .logo{
+        width: 40%;
+        cursor: pointer;
+    }    
+    
+    /* Cambio il font della nav bar */
+    li,a,.nav-button{
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        color: #edf0f1;
+        text-decoration: none;
+    }
+    /* Adatto gli elementi della navbar, space between serve per mettere gli elementi agli estremi e gli elementi restanti al*/
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 10%;
+        background-color: #000d18;
+        position: sticky;
+        top: 0;
+        /* Layer 1 */
+        z-index: 1;
+    }
+    /* Tolgo i puntini dalla lista non numerata */
+    .nav-links{
+        list-style: none;
+        
+    }
+    /* Modifico singolarmente gli elementi della lista, facendoli apparire un accanto all'altro*/
+    .nav-links li{
+        display: inline-block;
+        padding: 0px 20px ;
+    }
+    /* Anche se non dovevo gli ho messo una piccola animazione con il passaggio del cursore sui list item */
+    .nav-links li a{
+        transition: all 0.3s ease 0s;
+    }
+    /* E successivamente al passaggio del cursore i list item cambiano colore cosi fanno match con il colore del logo a sinistra*/
+    .nav-links li a:hover{
+        color: #076AAD;
+    }
+    /* Ho modellato il bottone a mio piacimento */
+    .nav-button{
+        padding: 9px 25px;
+        background-color: rgba(7,106,173,1);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+    }
+    /* Quanto il cursore passa sul bottone l'opacita scala di 0.2 gradienti */
+    .nav-button:hover{
+        background-color: rgba(7,106,173,0.8);
+    }
+    /* Ridimensiono le icone della nav bar */
+    .win-logo{
+        width: 40px;
+        margin-right: 15px;
+        margin-top: 0px;
+    }
+    .tux-logo{
+        margin-right: 10px;
+        width: 60px;
+    }
+    .apple-logo{
+        margin-right: 15px;
+        width: 35px;
+        color: #edf0f1;
+    
+    }
+    .nav-text{
+        display: inline-block;
+        position: relative;
+        bottom: 15px;
+    }
+    .presentation-image{
+        background-image: url(../img/Background/os-preview.jpg);
+        background-size: 100%;
+    }
+    /* Poiche non trovato delle animazioni carine su internet, ho deciso di fare l'animazione della freccia frame by frame */
+    .img-down-arrow{
+        width: 15%;
+    }
+    .arrow-down{
+        padding-left: 46%;
+        padding-top: 37.5%;
+    }
+    /* Sarebbe lo spazietto tra lo sfondo e l'inizio della pagina */
+    .dark-blue-bar{
+        background-color: #000d18;
+        width: 100%;
+        height: 50px;
+    }
+    .margin{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .titolo{
+        font-family: 'Ubuntu' , sans-serif;
+        color: whitesmoke;
+        font-size: 60px;
+        margin-top: 7%;
+        font-weight: 600;
+    }
+    .titolo-paragrafo{
+        font-family: 'Ubuntu' , sans-serif;
+        color: whitesmoke;
+        font-size: 50px;
+        margin-top: 4%;
+        font-weight: 500;
+    }
+    .testo{
+        font-family: 'Ubuntu' , sans-serif;
+        color: whitesmoke;
+        font-size: 24px;
+        margin-top: 1%;
+        font-weight: 300;
+    }
+    hr{
+        border-width: 4px;
+        border-radius: 4px;
+        border-color: whitesmoke;
+        margin-top: 2%;
+    }
+    .learn-more{
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        color: #edf0f1;
+        text-decoration: none;
+        background-color: rgba(7,106,173,1);
+        border: none;
+        padding: 9px 25px;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+    }
+    .learn-more:hover{
+        background-color: rgba(7,106,173,0.8);
+    }
+    .vertical-bar{
+        background-color: whitesmoke;
+        width: 10px;
+        height: 880px;
+        border-radius: 10px;
+        display: inline-block;
+        position: relative;
+        top: 70px;
+        left: 710px;
+    }
+    .gruppo-paragrafetti{
+        position: absolute;
+        top: 5300px;
+    }
+    .paragrafetto-coppia{
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    .paragrafetto-singolo{
+        width: 40%;
+        display: inline-block;
+        position: relative;
+    }
+    
+</style>
+<!-- Inserimento di uno sfondo statico con scroll della pagina -->
+<body style="background-image: url(../img/Background/background.svg); background-size: 100% ; background-attachment: fixed; ">
+    <!-- NAV BAR -->
+    <header>
+        <a href="index.html"><img class="logo" src="../img/Logo/logo.png" alt="logo"></a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="windows.html"><img src="../img/Logo/win_logo.png" alt="logo" class="win-logo"><div class="nav-text">Windows</div></a></li>
+                <li><a href="linux.html"><img src="../img/Logo/tux.png" alt="logo" class="tux-logo"><div class="nav-text">Linux</div></a></li>
+                <li><a href="macOS.html"><img src="../img/Logo/apple-logo.png" alt="logo" class="apple-logo"><div class="nav-text">Apple</div></a></li>
+            </ul>
+        </nav>
+        <a href="OS-comparison.html" class="os-comparison"><button class="nav-button">OS Comparison</button></a>
+    </header>
+    
+    <!-- Immagine di presentazione -->
+    <div class="presentation-image">
+        <!-- Freccia animata cliccabile -->
+        <div class="arrow-down">
+            <a href="#start"><img src="../img/Icons/Animated-arrow-unscreen.gif" alt="arrow" class="img-down-arrow"></a>
+        </div>
+    </div>
+    <div class="dark-blue-bar"></div>
+
+    <!-- Questo div è vuoto perche il suo scopo è solo quello di reindeizzare la freccia all'inizio della pagina  -->
+    <div id="start"></div>
+
+    <!-- Questo è il margine del 10% che è possibile visualizzare su tutta la pagina  -->
+    <div class="margin">
+        <!-- SISTEMI OPERATIVI -->
+        <div class="titolo">Operating System</div>
+        <div class="testo">
+            An operating system (OS) is 
+            <abbr title="System software is software designed to provide a platform for other software.Examples of system software include Operating Systems (OS) like macOS, Linux, Android and Microsoft Windows, computationalscience software, game engines, search engines, industrial automation, and software as a service applications.">system software</abbr> that manages 
+            <abbr title="Computer hardware includes the physical parts of a computer, such as the case, central processing unit (CPU), monitor, mouse, keyboard, computer data storage, graphics card, sound card, speakers and motherboard.">computer hardware</abbr>, 
+            <abbr title="Software is a collection of instructions that tell a computer how to work. This is in contrast to hardware, from which the system is built and actually performs the work.">software</abbr> resources, and provides common 
+            <abbr title="In multitasking computer operating systems, a daemon is a computer program that runs as a background process, rather than being under the direct control of an interactive user. Traditionally, the process names of a daemon end with the letter d, for clarification that the process is in fact a daemon, and for">services</abbr> for 
+            <abbr title="A computer is a tool that provides information and entertainment by means of a computer program written in a programming language. A computer program in its human-readable form is called source code. Source code needs another computer program to execute because computers can only execute the">computer programs</abbr>. 
+            <abbr title="In computing, time-sharing is the sharing of a computing resource among many users at the same time by means of multiprogramming and multi-tasking.">Time-sharing</abbr> operating systems 
+            <abbr title="In computer, scheduling is the action of assigning resources to perform tasks. The resources may be processors, network links or expansion cards. The tasks may be threads, processes or data flows.">schedule tasks</abbr> for efficient use of the system and may also include accounting software for cost allocation of 
+            <abbr title="In computer, scheduling is the action of assigning resources to perform tasks. The resources may be processors, network links or expansion cards. The tasks may be threads, processes or data flows.">processor time</abbr>, 
+            <abbr title="In computing, mass storage refers to the storage of large amounts of data in a persisting and machine-readable fashion. In general the term is uses as large in relation to contemporaneous disk drives, but it has been used large in relation to RAM as for example with floppy disks.">mass storage</abbr>, printing, and other resources.For hardware functions such as 
+            <abbr title="In computing, input/output is the communication between an information processing system, such as a computer, and the outside world, possibly a human or another information processing system. Inputs are the signals or data received by the system and outputs are the signals or data sent ">input and output</abbr> and 
+            <abbr title="Memory management is a form of resource management applied to computer memory. The essential requirement of memory management is to provide ways to dynamically allocate portions of memory to programs at their request, and free it for reuse when no longer needed. This is critical to any advanced computer system where more than a single process might be underway at any time.">memory allocation</abbr>, the operating system acts as an intermediary between programs and the computer hardware, although the application code is usually executed directly by the hardware and frequently makes 
+            <abbr title="In computing, a system call is the programmatic way in which a computer program requests a service from the kernel of the operating system on which it is executed. This may include hardware-related services, creation and execution of new processes, and communication with integral kernel servic">system calls</abbr> to an OS function or is 
+            <abbr title="In digital computers, an interrupt is a response by the processor to an event that needs attention from the software. An interrupt condition alerts the processor and serves as a request for the processor to interrupt the currently executing code when permitted, so that the event can be">interrupted</abbr>by it. Operating systems are found on many devices that contain a computer – from cellular phones and video game consoles to 
+            <abbr title="A web server is computer software and underlying hardware that accepts requests and send responses via HTTP or its secure variant HTTPS, the network protocols created to distribute web contents to client user agents. A user agent, commonly a web browser or web crawler, initiates">web servers</abbr> and 
+            <abbr title="A supercomputer is a computer with a high level of performance as compared to a general-purpose computer. The performance of a supercomputer is commonly measured in floating-point operations per second (FLOPS) instead of million instructions per second (MIPS). Since 2017, there are">supercomputers</abbr>.
+        </div>
+        <div style="margin-top: 2%; margin-left: 1%; background-color: #000d18; padding-left: 2%;width: 96.5%; border-radius: 3%;">
+            <span>
+                <img src="../img/Images/os2.png" alt="" height="500px">
+            </span>
+            <span>
+                <img src="../img/Images/os.png" alt="" height="500px">
+            </span>
+        </div>
+        <!-- MERCATO -->
+        <div class="titolo-paragrafo" >
+            Market
+        </div>
+        <div style="width: 100%;">
+            <div style="display: inline-block; width: 50%;" class="testo">
+                The dominant general-purpose personal computer operating system is Microsoft Windows with a market share of around 76.45%. macOS by Apple Inc. is in second place (17.72%), 
+                and the varieties of Linux are collectively in third place (1.73%). In the mobile sector (including smartphones and tablets), Android's share is up to 72% in the year 2020. 
+                According to third quarter 2016 data, Android's share on smartphones is dominant with 87.5 percent with also a growth rate of 10.3 percent per year, followed by Apple's iOS 
+                with 12.1 percent with per year decrease in market share of 5.2 percent, while other operating systems amount to just 0.3 percent. Linux distributions are dominant in the 
+                server and supercomputing sectors. Other specialized classes of operating systems (special-purpose operating systems), such as embedded and real-time systems, exist for many applications. 
+                Security-focused operating systems also exist. Some operating systems have low system requirements (e.g. light-weight Linux distribution). Others may have higher system requirements. 
+                Some operating systems require installation or may come pre-installed with purchased computers (OEM-installation), whereas others may run directly from media (i.e. live CD) or flash memory (i.e. USB stick).
+            </div>
+            <div style="display: inline-block;">
+                <img src="../img/Images/marketOS.jpg" alt="" width="110%" style="margin-left: 10%; margin-bottom: 5%; border-radius: 3%;">
+            </div>
+        </div>
+
+        <!-- ESEMPI -->
+        <div class="titolo-paragrafo" style="margin-bottom: 5%;">Examples</div>
+        <!-- WINDOWS -->
+        <div style="width: 100%; height: 100%;">
+            <div style="width: 50%; display: inline-block;">
+                <img src="../img/Desktop/Win/Animated-Win.gif" alt="" style="width: 100%; border-radius: 5%; margin-bottom: -25%;">
+            </div>
+            <div class="titolo" style="display: inline-block; width: 25%; margin-top: 0%; margin-left: 10%; height: 300px;">
+                Windows 11
+                <a href="windows.html"><button class="learn-more" style="display: block;">Learn More</button></a>
+            </div>
+        </div>
+        <!-- UBUNTU -->
+        <div style="width: 100%; height: 100%; margin-bottom: -1.5%;">
+            <div class="titolo" style="display: inline-block; margin-top: 0%; margin-left: 10%; height: 300px; width: 34%; ">
+                Ubuntu
+                <a href="linux.html"><button class="learn-more" style="display: block;">Learn More</button></a>
+            </div>
+            <div style="display: inline-block; margin-top: 0%; width: 55%; ">
+                <img src="../img/Desktop/Ubuntu/Animated-Ubuntu.gif" style="width: 100%; border-radius: 5%; margin-bottom: -20%;">
+            </div>
+        </div>
+        <!-- MACOSX -->
+        <div style="width: 100%; height: 100%; margin-bottom: 5%;">
+            <div style="width: 50%; display: inline-block;">
+                <img src="../img/Desktop/Mac/Animated-Mac.gif" alt="" style="width: 100%; border-radius: 5%; margin-bottom: -20%;">
+            </div>
+            <div class="titolo" style="display: inline-block; width: 30%; margin-top: 0%; margin-left: 10%; height: 300px;">
+                Mac OS  Monterey
+                <a href="windows.html"><button class="learn-more" style="display: block;">Learn More</button></a>
+            </div>
+        </div>
+        <hr noshade>
+
+        <!-- TIPI DI SISTEMI OPERATIVI -->
+        <div class="titolo">Types of operating systems</div>
+        <div class="titolo-paragrafo">Single-tasking and multi-tasking</div>
+        <div class="testo" >
+            A single-tasking system can only run one program at a time, while a multi-tasking operating system allows more than one program to be running in concurrency.
+            This is achieved by time-sharing, where the available processor time is divided between multiple processes. These processes are each interrupted repeatedly in time 
+            slices by a task-scheduling subsystem of the operating system. Multi-tasking may be characterized in preemptive and co-operative types. In preemptive multitasking, 
+            the operating system slices the CPU time and dedicates a slot to each of the programs. Unix-like operating systems, such as Linux—as well as non-Unix-like, such as 
+            AmigaOS—support preemptive multitasking. Cooperative multitasking is achieved by relying on each process to provide time to the other processes in a defined manner. 
+            16-bit versions of Microsoft Windows used cooperative multi-tasking; 32-bit versions of both Windows NT and Win9x used preemptive multi-tasking.
+        </div>
+        <div style="width: 100%;">
+            <img src="../img/Images/multitasking.png" alt="" width="60%" style="border-radius: 5%; margin-left: 15%;">
+        </div>
+
+        <!-- Inizio paragrafetti -->
+        <!-- Barra Verticale -->
+        <div class="vertical-bar"></div>
+        <div class="gruppo-paragrafetti">
+            <div class="paragrafetto-coppia">
+                <div class="paragrafetto-singolo">
+                    <div class="titolo-paragrafo">
+                        Single- and multi-user
+                    </div>
+                    <div class="testo">
+                        Single-user operating systems have no facilities to distinguish users, but may allow multiple programs to run in tandem. A multi-user operating system extends 
+                        the basic concept of multi-tasking with facilities that identify processes and resources, such as disk space, belonging to multiple users, and the system permits 
+                        multiple users to interact with the system at the same time. Time-sharing operating systems schedule tasks for efficient use of the system and may also include 
+                        accounting software for cost allocation of processor time, mass storage, printing, and other resources to multiple users.
+                    </div>
+                </div>
+                <div class="paragrafetto-singolo" style="bottom: 25px; left: 5%;">
+                    <div class="titolo-paragrafo">
+                        Real-time
+                    </div>
+                    <div class="testo">
+                        A real-time operating system is an operating system that guarantees to process events or data by a specific moment in time. A real-time operating system may 
+                        be single- or multi-tasking, but when multitasking, it uses specialized scheduling algorithms so that a deterministic nature of behavior is achieved. 
+                        Such an event-driven system switches between tasks based on their priorities or external events, whereas time-sharing operating systems switch tasks based 
+                        on clock interrupts.
+                    </div>
+                </div>
+            </div>
+            <div class="paragrafetto-coppia">
+                <div class="paragrafetto-singolo">
+                    <div class="titolo-paragrafo">
+                        Templated
+                    </div>
+                    <div class="testo">
+                        In the distributed and cloud computing context of an OS, templating refers to creating a single virtual machine image as a guest operating system, then saving it as 
+                        a tool for multiple running virtual machines. The technique is used both in virtualization and cloud computing management, and is common in large server warehouses.
+                    </div>
+                </div>
+                <div class="paragrafetto-singolo" style="left: 5%; bottom: 50px;">
+                    <div class="titolo-paragrafo">
+                        Distributed
+                    </div>
+                    <div class="testo">
+                        A distributed operating system manages a group of distinct, networked computers and makes them appear to be a single computer, as all computations are distributed 
+                        (divided amongst the constituent computers)
+                    </div>
+                </div>
+            </div>
+            <div class="paragrafetto-coppia">
+                <div class="paragrafetto-singolo">
+                    <div class="titolo-paragrafo">
+                        Embedded
+                    </div>
+                    <div class="testo">
+                        Embedded operating systems are designed to be used in embedded computer systems. They are designed to operate on small machines with less autonomy (e.g. PDAs). 
+                        They are very compact and extremely efficient by design, and are able to operate with a limited amount of resources. Windows CE and Minix 3 are some examples 
+                        of embedded operating systems.
+                    </div>
+                </div>
+                <div class="paragrafetto-singolo" style="left: 5%; bottom: 20px;">
+                    <div class="titolo-paragrafo">
+                        Library
+                    </div>
+                    <div class="testo">
+                        A library operating system is one in which the services that a typical operating system provides, such as networking, are provided in the form of libraries 
+                        and composed with the application and configuration code to construct a unikernel: a specialized, single address space, machine image that can be deployed 
+                        to cloud or embedded environments.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr noshade style="margin-top: 80px; border-width: 5px;">
+        <div class="titolo">
+            History
+        </div>
+        <div class="testo">
+            Early computers were built to perform a series of single tasks, like a calculator. Basic operating system features were developed in the 1950s, such as resident 
+            monitor functions that could automatically run different programs in succession to speed up processing. Operating systems did not exist in their modern and more 
+            complex forms until the early 1960s. Hardware features were added, that enabled use of runtime libraries, interrupts, and parallel processing. When personal 
+            computers became popular in the 1980s, operating systems were made for them similar in concept to those used on larger computers.
+        </div>
+    </div>
+
+    <!-- <h1 id="testo-prova">Cambiare la risoluzione delle immagini fare i bordi arrotondati e fare le linee verticali leggermente arrotondate per dividere le cose con i div</h1> -->
+
+</body>
+</html>

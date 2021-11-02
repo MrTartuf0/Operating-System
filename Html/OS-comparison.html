@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OS</title>
+</head>
+<!-- Non sapprei se questo è considerato css interno  -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Ubuntu:wght@400;500&display=swap');
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+
+    }
+    /* Faccio un resize per il logo */
+    .logo{
+        width: 40%;
+        cursor: pointer;
+    }    
+    /* Cambio il font della nav bar */
+    li,a,.nav-button{
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        color: #edf0f1;
+    }
+    /* Adatto gli elementi della navbar, space between serve per mettere gli elementi agli estremi e gli elementi restanti al*/
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 10%;
+        background-color: #000d18;
+        
+    }
+    /* Tolgo i puntini dalla lista non numerata */
+    .nav_links{
+        list-style: none;
+    }
+    /* Modifico singolarmente gli elementi della lista, facendoli apparire un accanto all'altro*/
+    .nav_links li{
+        display: inline-block;
+        padding: 0px 20px ;
+    }
+    /* Anche se non dovevo gli ho messo una piccola animazione con il passaggio del cursore sui list item */
+    .nav_links li a{
+        transition: all 0.3s ease 0s;
+    }
+    /* E successivamente al passaggio del cursore i list item cambiano colore cosi fanno match con il colore del logo a sinistra*/
+    .nav_links li a:hover{
+        color: #076AAD;
+    }
+    /* Ho modellato il bottone a mio piacimento */
+    .nav-button{
+        padding: 9px 25px;
+        background-color: rgba(7,106,173,1);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+    }
+    /* Quanto il cursore passa sul bottone l'opacita scala di 0.2 gradienti */
+    .nav-button:hover{
+        background-color: rgba(7,106,173,0.8);
+    }
+    /* Ridimensiono le icone della nav bar */
+    .win-logo{
+        width: 40px;
+        margin-right: 15px;
+    }
+    .tux-logo{
+        margin-right: 10px;
+        width: 60px;
+    }
+    .apple-logo{
+        margin-right: 15px;
+        width: 35px;
+        color: #edf0f1;
+    }
+    .nav-text{
+        display: inline-block;
+        position: relative;
+        bottom: 15px;
+    }
+    .presentation-image{
+        background-image: url(../img/Background/os-preview.png);
+        background-size: 100%;
+    }  
+    .titolo{
+        font-family: 'Ubuntu' , sans-serif;
+        color: whitesmoke;
+        font-size: 60px;
+        font-weight: 600;
+    }
+    .titolo-paragrafo{
+        font-family: 'Ubuntu' , sans-serif;
+        color: whitesmoke;
+        font-size: 45px;
+        font-weight: 500;
+        text-align: center;
+        background-color: #076AAD;
+    }
+    .grassetto{
+        font-family: 'Ubuntu' , sans-serif;
+        color: whitesmoke;
+        font-size: 35px;
+        font-weight: 500;
+        text-align: center;
+    }
+    .testo{
+        font-family: 'Ubuntu' , sans-serif;
+        color: whitesmoke;
+        font-size: 24px;
+        font-weight: 300;
+    }
+    .margin{
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    table{
+        border-color: whitesmoke;
+        border-width: 2px;
+        border-style: solid;
+        width: 100%;
+        border-radius: 3px;
+        background-color: #000d18;
+    }
+    tr{
+        border-color: whitesmoke;
+        border-style: solid;
+    }
+    th{
+        border-color: whitesmoke;
+        border-width: 2px;
+        border-style: solid;
+    }
+    td{
+        border-color: whitesmoke;
+        border-style: solid;
+        padding: 25px;
+    }
+</style>
+<!-- Inserimento di uno sfondo statico con scroll della pagina -->
+<body style="background-image: url(../img/Background/background.svg); background-size: 100% ; background-attachment: fixed; ">
+    <!-- Collegamento bootstrap Js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <header>
+        <a href="index.html"><img class="logo" src="../img/Logo/logo.png" alt="logo"></a>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="windows.html"><img src="../img/Logo/win_logo.png" alt="logo" class="win-logo"><div class="nav-text">Windows</div></a></li>
+                <li><a href="linux.html"><img src="../img/Logo/tux.png" alt="logo" class="tux-logo"><div class="nav-text">Linux</div></a></li>
+                <li><a href="macOS.html"><img src="../img/Logo/apple-logo.png" alt="logo" class="apple-logo"><div class="nav-text">Apple</div></a></li>
+            </ul>
+        </nav>
+        <a href="OS-comparison.html" class="sistemi-operativi"><button class="nav-button">OS Comparison</button></a>
+    </header>
+    
+    <div class="margin">
+        <table cellspacing=0 >
+            <caption><div class="titolo" style="margin-top: 5%; margin-bottom: 5%;">Operating System Comparison</div></div></caption>
+            <!-- Primo Paragrafo -->
+            <thead class="titolo-paragrafo">
+                <tr>
+                    <td colspan="3">#1. Basic Difference and History</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width: 33.3%;">
+                        <div class="grassetto">
+                            Windows
+                        </div>
+                        <img src="../img/Table/table1.png" width="40%" style="position: relative; left: 30%;">
+                        <div class="testo">
+                            Windows was first released in 1985. It was supposed to be graphical user interface on top of MS DOS. All 
+                            features of MS DOS were later integrated in Windows 95 release. It was a huge success in and led to Windows transition.
+                        </div>
+                    </td>
+                    <td style="width: 33.3%;">
+                        <div class="grassetto">
+                            Mac
+                        </div>
+                        <img src="../img/Table/table1.png" width="40%" style="position: relative; left: 30%;">
+                        <div class="testo">
+                            This operating system from Apple stands older than Windows. It was first released in 1984. It began as a graphical 
+                            user interface right from its inception. In 2005 the design and structure of MAC OS was changed to IntelX86 based architecture.
+                        </div>
+                    </td>
+                    <td style="width: 33.3%;">
+                        <div class="grassetto">
+                            Linux
+                        </div>
+                        <img src="../img/Table/table1.png" width="40%" style="position: relative; left: 30%;">
+                        <div class="testo">
+                            Linux It was initially developed in Finnish University. It was released in 1991 and designed for GNU developers. GNU developers 
+                            later integrated it into Linux. It is open to consumers and everyone can use as per their specifications.
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <!-- Secondo Paragrafo -->
+            <thead class="titolo-paragrafo">
+                <tr>
+                    <td colspan="3">#2. File Structure</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width: 33.3%;">
+                        <div class="grassetto">
+                            Windows
+                        </div>
+                        <img src="../img/Table/table2.png" width="35%" style="position: relative; left: 30%;">
+                        <div class="testo">
+                            Windows follows a directory structure to store the different kinds of files of the user. It has logical drives and cabinet drawers. 
+                            It also has folders. Some common folders like documents, pictures, music, videos and downloads. All these files can be stored 
+                            in these folders and also new folders can be created. It also has files which can be a spreadsheet or any application program. 
+                            It can have extensions as .txt, .jpg etc.In addition to this Windows also provides recycle bin where all deleted files can be 
+                            stored. Recycle bin can be configured to increase its size.
+                        </div>
+                    </td>
+                    <td style="width: 33.3%;">
+                        <div class="grassetto">
+                            Mac
+                        </div>
+                        <img src="../img/Table/table2.png" width="35%" style="position: relative; left: 30%;">
+                        <div class="testo">
+                            Testo
+                        </div>
+                    </td>
+                    <td style="width: 33.3%;">
+                        <div class="grassetto">
+                            Linux
+                        </div>
+                        <img src="../img/Table/table2.png" width="35%" style="position: relative; left: 30%;">
+                        <div class="testo">
+                            Testo
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <!-- Terzo Paragrafo -->
+            <thead class="titolo-paragrafo">
+                <tr>
+                    <td colspan="3">#3. Registry</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width: 33.3%;">
+                        <div class="grassetto">
+                            Windows
+                        </div>
+                        <img src="../img/Table/table3.png" width="40%" style="position: relative; left: 30%;">
+                        <div class="testo">
+                            testo
+                        </div>
+                    </td>
+                    <td style="width: 33.3%;">
+                        <div class="grassetto">
+                            Mac
+                        </div>
+                        <img src="../img/Table/table3.png" width="40%" style="position: relative; left: 30%;">
+                        <div class="testo">
+                            Testo
+                        </div>
+                    </td>
+                    <td style="width: 33.3%;">
+                        <div class="grassetto">
+                            Linux
+                        </div>
+                        <img src="../img/Table/table3.png" width="40%" style="position: relative; left: 30%;">
+                        <div class="testo">
+                            Testo
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <!-- Quarto Paragrafo -->
+            <thead class="titolo-paragrafo">
+                <tr>
+                    <td colspan="3">#4. Interchangeable Interface</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width: 33.3%;">
+                        <div class="grassetto">
+                            Windows
+                        </div>
+                        <img src="../img/Table/table4.png" width="40%" style="position: relative; left: 30%;">
+                        <div class="testo">
+                            Testo
+                        </div>
+                    </td>
+                    <td style="width: 33.3%;">
+                        <div class="grassetto">
+                            Mac
+                        </div>
+                        <img src="../img/Table/table4.png" width="40%" style="position: relative; left: 30%;">
+                        <div class="testo">
+                            Testo
+                        </div>
+                    </td>
+                    <td style="width: 33.3%;">
+                        <div class="grassetto">
+                            Linux
+                        </div>
+                        <img src="../img/Table/table4.png" width="40%" style="position: relative; left: 30%;">
+                        <div class="testo">
+                            Testo
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <!-- Quinto Paragrafo -->
+            <thead class="titolo-paragrafo">
+                <tr>
+                    <td colspan="3">#5. Command Terminal</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width: 33.3%;">
+                        <div class="grassetto">
+                            Windows
+                        </div>
+                        <img src="../img/Table/table5.png" width="40%" style="position: relative; left: 30%;">
+                        <div class="testo">
+                            Testo
+                        </div>
+                    </td>
+                    <td style="width: 33.3%;">
+                        <div class="grassetto">
+                            Mac
+                        </div>
+                        <img src="../img/Table/table5.png" width="40%" style="position: relative; left: 30%;">
+                        <div class="testo">
+                            Testo
+                        </div>
+                    </td>
+                    <td style="width: 33.3%;">
+                        <div class="grassetto">
+                            Linux
+                        </div>
+                        <img src="../img/Table/table5.png" width="40%" style="position: relative; left: 30%;">
+                        <div class="testo">
+                            Testo
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+ 
+</body>
+</html>
